@@ -441,8 +441,8 @@ const indexHTML = `<!doctype html>
     :root {
       color-scheme: light;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f6f7f9;
-      color: #17202a;
+      background: #eef2f7;
+      color: #111827;
     }
 
     * {
@@ -453,9 +453,8 @@ const indexHTML = `<!doctype html>
       margin: 0;
       min-height: 100vh;
       background:
-        linear-gradient(135deg, rgba(20, 184, 166, 0.10), transparent 34%),
-        linear-gradient(315deg, rgba(244, 114, 182, 0.12), transparent 32%),
-        #f6f7f9;
+        linear-gradient(180deg, #ffffff 0, rgba(255, 255, 255, 0) 300px),
+        #eef2f7;
     }
 
     button, input {
@@ -468,9 +467,9 @@ const indexHTML = `<!doctype html>
     }
 
     .page {
-      width: min(960px, calc(100% - 32px));
+      width: min(760px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 36px 0;
+      padding: 48px 0 42px;
     }
 
     .topbar {
@@ -478,7 +477,9 @@ const indexHTML = `<!doctype html>
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #d9dee7;
     }
 
     .brand {
@@ -489,14 +490,16 @@ const indexHTML = `<!doctype html>
 
     h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 32px;
       line-height: 1.1;
       letter-spacing: 0;
+      font-weight: 800;
     }
 
     .meta {
       color: #667085;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .status {
@@ -507,10 +510,11 @@ const indexHTML = `<!doctype html>
       padding: 0 12px;
       border: 1px solid #d9dee7;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.75);
+      background: #ffffff;
       color: #475467;
       font-size: 14px;
       white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
     }
 
     .dot {
@@ -531,18 +535,23 @@ const indexHTML = `<!doctype html>
     .toolbar {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 8px;
+      border: 1px solid #d9dee7;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(16, 24, 40, 0.07);
     }
 
     .input {
       width: 100%;
-      height: 44px;
+      height: 42px;
       padding: 0 14px;
-      border: 1px solid #cfd6e3;
+      border: 1px solid transparent;
       border-radius: 8px;
-      background: #fff;
-      color: #17202a;
+      background: #f8fafc;
+      color: #111827;
       outline: none;
     }
 
@@ -552,7 +561,7 @@ const indexHTML = `<!doctype html>
     }
 
     .button {
-      height: 44px;
+      height: 42px;
       min-width: 96px;
       padding: 0 16px;
       border-radius: 8px;
@@ -587,7 +596,7 @@ const indexHTML = `<!doctype html>
 
     .list {
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
 
     .todo {
@@ -595,12 +604,16 @@ const indexHTML = `<!doctype html>
       grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
       gap: 12px;
-      min-height: 58px;
-      padding: 10px 12px;
-      border: 1px solid #d9dee7;
+      min-height: 62px;
+      padding: 12px;
+      border: 1px solid #eaecf0;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.035);
+    }
+
+    .todo:hover {
+      border-color: #cfd6e3;
     }
 
     .check {
@@ -611,8 +624,9 @@ const indexHTML = `<!doctype html>
 
     .title {
       min-width: 0;
-      color: #17202a;
+      color: #111827;
       overflow-wrap: anywhere;
+      line-height: 1.4;
     }
 
     .title.done {
@@ -622,7 +636,14 @@ const indexHTML = `<!doctype html>
 
     .actions {
       display: flex;
-      gap: 8px;
+      gap: 6px;
+    }
+
+    .actions .button {
+      height: 38px;
+      min-width: 64px;
+      padding: 0 12px;
+      font-size: 13px;
     }
 
     .empty {
@@ -632,7 +653,7 @@ const indexHTML = `<!doctype html>
       border: 1px dashed #bcc6d5;
       border-radius: 8px;
       color: #667085;
-      background: rgba(255, 255, 255, 0.55);
+      background: #ffffff;
     }
 
     .toast {
@@ -657,7 +678,7 @@ const indexHTML = `<!doctype html>
 
     @media (max-width: 640px) {
       .page {
-        width: min(100% - 24px, 960px);
+        width: min(100% - 24px, 760px);
         padding-top: 24px;
       }
 
@@ -668,6 +689,7 @@ const indexHTML = `<!doctype html>
 
       .toolbar {
         grid-template-columns: 1fr;
+        padding: 8px;
       }
 
       .button {
