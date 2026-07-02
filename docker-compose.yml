@@ -3,9 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      APP_PORT: ${APP_PORT:-8080}
-      DATABASE_URL: ${DATABASE_URL:-postgres://mypaas:mypaas@db:5432/mypaas_dummy?sslmode=disable}
+    env_file:
+      - .env
     ports:
       - "${APP_PORT:-8080}:8080"
     depends_on:
@@ -15,10 +14,8 @@ services:
 
   db:
     image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-mypaas}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypaas}
-      POSTGRES_DB: ${POSTGRES_DB:-mypaas_dummy}
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
